@@ -6,10 +6,8 @@
       let scoreMatch = task.content.match(/Score:\s*(\d+\.?\d*)/);
       let oldScore = scoreMatch ? Number(scoreMatch[1]) : null;
       if (!task.content.includes("Score:") || oldScore != newScore) {
-       // const redText = '\\x1b[31mThis text is red\\x1b[0m';
-
         let newContent = task.content.replace(/\s*Score:\s*\d+\.?\d*$/, '');        
-        newContent += ' Score: ' + newScore;
+        newContent += ' **==Score: ' + newScore + '==**';
         app.updateTask(task.uuid, { content: newContent} );
       }
     });
